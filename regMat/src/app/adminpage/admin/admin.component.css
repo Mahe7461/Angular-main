@@ -1,0 +1,22 @@
+.display{
+    align-items:flex-end;
+    padding-top: 2px;
+    background-color: indigo;
+    align-items: flex-end;
+}
+h1 {
+    color:brown;
+    align-content: center;
+    font-style:italic ;
+}
+.modal-title{
+    color: indigo;
+   
+    text-decoration: mediumblue;
+    padding: 1px;
+   
+    text-align: center;
+    font-size: 20px;
+    font-style:initial;
+    text-shadow: horizontal 10 vertical 10 color mediumblue ;
+}  

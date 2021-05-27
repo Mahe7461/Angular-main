@@ -1,0 +1,82 @@
+<!--<form class="login-form" action="javascript:void(0);">
+  <h1>Create Admin</h1>
+  <div class="form-input-material">
+    <input matInput type="text" name="username" id="username" placeholder="username" [(ngModel)]='username'autocomplete="off" class="form-control-material" required />
+    
+  </div>
+  <div class="form-input-material">
+    <input matInput placeholder="Email" type='text' id='email' name='email' [(ngModel)]='email' required>
+   
+  </div>
+   <div class="form-input-material">
+    <input matInput type="password" name="password" id="password" placeholder="password" [(ngModel)]='password' autocomplete="off" class="form-control-material" required />
+    
+  </div>
+   <div class="form-input-material">
+    <input  matInput type="password" name="password" id="password" placeholder="password" [(ngModel)]='password' autocomplete="off" class="form-control-material" required />
+   
+  </div>
+  <button type="submit" class="btn btn-primary btn-ghost" (click)='create()'>Login</button>
+  <button type="submit" class="btn btn-primary btn-ghost"  (click)='back()' >back</button>
+</form>-->
+<form class="login-form" action="javascript:void(0);">
+  <h1>Create Admin</h1>
+  <div class="form-input-material">
+<mat-form-field class="input-field" formGroup='registrationForm'>
+    
+      <input matInput placeholder="Username" formControlName="username"  maxlength='15' required>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('username').hasError('required') && registrationForm.get('username').touched || submitted">
+        {{ formErrorMessages.FirstName.require }}
+      </mat-error>
+  </mat-form-field>
+<mat-form-field class="input-field" formGroup='registrationForm'>
+      <input matInput placeholder="Email" formControlName="email"  maxlength='10' required>
+      <mat-hint align="end">Hint: email@domain.com</mat-hint>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('email').hasError('email') && registrationForm.get('email').touched || submitted">
+        {{ formErrorMessages.email.pattern }}
+      </mat-error>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('email').hasError('required') && registrationForm.get('email').touched || submitted">
+        {{ formErrorMessages.email.require }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="input-field" formGroup='registrationForm'>
+      <input matInput type="password" placeholder="Password" formControlName="password" maxlength='15' required>
+      <mat-hint align="end">Hint: Min 5 symbols(1 letter, 1 digit and 1 special character)</mat-hint>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('password').hasError('required') && registrationForm.get('password').touched || submitted">
+        {{ formErrorMessages.password.require }}
+      </mat-error>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('password').hasError('minlength') && registrationForm.get('password').touched || submitted">
+        {{ formErrorMessages.password.minLength }}
+      </mat-error>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('password').hasError('maxlength') && registrationForm.get('password').touched || submitted">
+        {{ formErrorMessages.password.maxLength }}
+      </mat-error>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('password').hasError('pattern') && registrationForm.get('password').touched || submitted">
+        {{ formErrorMessages.password.pattern }}
+      </mat-error>
+      
+    </mat-form-field><br>
+    <br>
+    <mat-form-field class="input-field" formGroup='registrationForm'>
+      <input matInput type="password" placeholder="Password Confirmation"  maxlength='15' formControlName="passwordConfirmation"
+             required>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('passwordConfirmation').hasError('required') && registrationForm.get('passwordConfirmation').touched || submitted">
+        {{ formErrorMessages.passwordConfirmation.require }}
+      </mat-error>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('passwordConfirmation').errors && registrationForm.get('passwordConfirmation').touched || submitted">
+        {{ formErrorMessages.passwordConfirmation.match }}
+      </mat-error>
+      </mat-form-field><br>
+
+        <button type="submit" class="btn btn-primary btn-ghost" (click)='create()'>Create</button><button type="submit" class="btn btn-primary btn-ghost"  (click)='back()' >back</button>
+  

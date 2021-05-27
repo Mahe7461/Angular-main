@@ -1,0 +1,42 @@
+.fullclick li {
+    list-style: none;
+    
+    margin-right: 90%;
+    background: paleturquoise;
+    position: relative;
+  }
+  
+  .fullclick a.main {
+    color:gray;
+    text-align: right;
+    display: block;
+    z-index: 1;
+  }
+  h1{
+      color: purple;
+      align-content: center;
+  }
+  h2{
+    color: red;
+  }
+  h5{
+    color: blue;
+    text-size-adjust: 10%;
+  }
+  .fullclick li a.main::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: ' ';
+  }
+  .card{
+    list-style: none;
+    
+    padding: 20px 10px;
+    background:gray;
+    position: relative;
+    
+    
+  }

@@ -1,0 +1,27 @@
+
+<div class="d-flex flex-row bd-highlight mb-3">
+
+<div class="form-froup row" style="width: 75%;">
+    <label class="col-sm-2 col-form-label">QuestionId</label>
+    <div class="col-sm-10">
+        <input  matInput type="text" class="form-control" [(ngModel)]="EmployeeId"
+        placeholder="Enter QuestionId">
+    </div>
+
+    <label class="col-sm-2 col-form-label">Question</label>
+    <div class="col-sm-10">
+        <input  matInput type="text" class="form-control" [(ngModel)]="Question"
+        placeholder="Enter Question">
+    </div>  
+    
+    
+
+</div>
+</div>
+
+
+
+<button (click)="updateEmployee()"  class="btn btn-primary">
+    Update
+</button>
+

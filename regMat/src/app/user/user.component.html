@@ -1,0 +1,29 @@
+
+<h1>Welcome to user page</h1> 
+   
+   
+   
+
+  <mat-card-content>  
+
+    <mat-form-field class="input-field" >
+    
+      <input matInput placeholder="username" type='text'id='username'name='username'[(ngModel)]='username' required>
+    
+    </mat-form-field>
+  <br>
+  <mat-card-content>
+  
+    <mat-form-field class="input-field" >
+    
+      <input matInput placeholder="Password" type='password' id='password' name='password' [(ngModel)]='password' required>
+     
+  </mat-form-field>
+   <br>
+    <button type="submit" mat-stroked-button color="accent"  (click)='test()' class="btn-block">Login</button>
+   
+  
+   
+  </mat-card-content>
+  <button type="submit" mat-stroked-button color="accent"(click)='formcon()'>Login</button><br>
+  <button type="submit" mat-stroked-button color="accent"(click)='regisp()'>sinup</button>

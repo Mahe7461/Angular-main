@@ -1,0 +1,29 @@
+h2{
+  color: red;
+}
+h5{
+  color: blue;
+  align-content: center;
+  
+}
+.fullclick li a.main::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: ' ';
+}
+.add{
+  margin-left: 60%;
+  background-color: rebeccapurple;
+}
+.card{
+  
+  
+  
+  background:gray;
+  
+  
+  
+}

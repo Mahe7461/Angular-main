@@ -1,0 +1,20 @@
+<form class="login-form" action="javascript:void(0);">
+  <h1>Login</h1>
+  <div class="form-input-material">
+   <mat-form-field class="input-field" >
+    
+      <input matInput type="text" name="username" id="username" placeholder="Username"
+      [(ngModel)]='username' class="form-control-material" required >
+      
+  </mat-form-field>
+
+<br>
+    <mat-form-field class="input-field">
+      <input matInput type="password" name="password" id="password" placeholder="Password"
+      [(ngModel)]='password' class="form-control-material" required >
+
+   </mat-form-field>
+   <br>
+
+    
+  <button type="submit" class="btn btn-primary btn-ghost" (click)='login()'>Login</button>

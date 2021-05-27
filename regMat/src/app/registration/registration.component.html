@@ -1,0 +1,190 @@
+
+                          
+                          
+                          
+                          <mat-card-header>
+  <mat-card-title>Register</mat-card-title>
+</mat-card-header>
+
+
+<form class="form-container" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+  <div *ngIf="formValid" class="message success"> {{formErrorMessages.validRegistrationForm}}</div>
+  <div *ngIf="formValid === false" class="message error"> {{formErrorMessages.invalidRegistrationForm}}</div>
+
+  <mat-card-content>
+    <mat-form-field class="input-field">
+    
+      <input matInput placeholder="EmployeeId" formControlName="EmployeeId" maxlength='15' required>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('EmployeeId').hasError('required') && registrationForm.get('EmployeeId').touched || submitted">
+        {{ formErrorMessages.EmployeeId.require }}
+      </mat-error>
+  </mat-form-field>
+  <mat-form-field class="input-field">
+    
+      <input matInput placeholder="FirstName" formControlName="FirstName"  maxlength='15' required>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('FirstName').hasError('required') && registrationForm.get('FirstName').touched || submitted">
+        {{ formErrorMessages.FirstName.require }}
+      </mat-error>
+  </mat-form-field>
+    
+   <mat-form-field class="input-field">
+      <input matInput placeholder="LastName" formControlName="LastName" maxlength='15' required>
+         <mat-error align="end"
+                 *ngIf="registrationForm.get('LastName').hasError('required') && registrationForm.get('LastName').touched || submitted">
+        {{ formErrorMessages.LastName.require }}
+          </mat-error>
+    </mat-form-field>
+    <mat-form-field class="input-field">
+    
+      <input matInput placeholder="Department" formControlName="Department" maxlength='15' required>
+        <mat-error align="end"
+                 *ngIf="registrationForm.get('Department').hasError('required') && registrationForm.get('Department').touched || submitted">
+        {{ formErrorMessages.Department.require }}
+        </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="input-field">
+        <input matInput placeholder="DOB"  type= date formControlName="DOB" required>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('DOB').hasError('required') && registrationForm.get('DOB').touched || submitted">
+        {{ formErrorMessages.DOB.require }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="input-field">
+      <input matInput placeholder="ContactNumber" formControlName="ContactNumber" maxlength='10' required>
+        <mat-error align="end"
+                 *ngIf="registrationForm.get('ContactNumber').hasError('required') && registrationForm.get('ContactNumber').touched || submitted">
+        {{ formErrorMessages.ContactNumber.require }}
+        </mat-error>
+        <mat-error align="end"
+                 *ngIf="registrationForm.get('ContactNumber').hasError('minlength') && registrationForm.get('ContactNumber').touched || submitted">
+        {{ formErrorMessages.ContactNumber.minLength }}
+        </mat-error>
+        <mat-error align="end"
+                 *ngIf="registrationForm.get('ContactNumber').hasError('maxlength') && registrationForm.get('ContactNumber').touched || submitted">
+        {{ formErrorMessages.ContactNumber.maxLength }}
+        </mat-error>
+    </mat-form-field>
+<br>
+
+    <mat-form-field class="input-field">
+      <input matInput placeholder="Email" formControlName="email"  maxlength='10' required>
+      <mat-hint align="end">Hint: email@domain.com</mat-hint>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('email').hasError('email') && registrationForm.get('email').touched || submitted">
+        {{ formErrorMessages.email.pattern }}
+      </mat-error>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('email').hasError('required') && registrationForm.get('email').touched || submitted">
+        {{ formErrorMessages.email.require }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="input-field">
+      <input matInput type="password" placeholder="Password" formControlName="password" maxlength='15' required>
+      <mat-hint align="end">Hint: Min 5 symbols(1 letter, 1 digit and 1 special character)</mat-hint>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('password').hasError('required') && registrationForm.get('password').touched || submitted">
+        {{ formErrorMessages.password.require }}
+      </mat-error>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('password').hasError('minlength') && registrationForm.get('password').touched || submitted">
+        {{ formErrorMessages.password.minLength }}
+      </mat-error>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('password').hasError('maxlength') && registrationForm.get('password').touched || submitted">
+        {{ formErrorMessages.password.maxLength }}
+      </mat-error>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('password').hasError('pattern') && registrationForm.get('password').touched || submitted">
+        {{ formErrorMessages.password.pattern }}
+      </mat-error>
+    </mat-form-field>
+<br>
+    <mat-form-field class="input-field">
+      <input matInput type="password" placeholder="Password Confirmation"  maxlength='15' formControlName="passwordConfirmation"
+             required>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('passwordConfirmation').hasError('required') && registrationForm.get('passwordConfirmation').touched || submitted">
+        {{ formErrorMessages.passwordConfirmation.require }}
+      </mat-error>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('passwordConfirmation').errors && registrationForm.get('passwordConfirmation').touched || submitted">
+        {{ formErrorMessages.passwordConfirmation.match }}
+      </mat-error>
+      </mat-form-field>
+    
+    
+
+    
+<br>
+    <mat-form-field class="input-field">
+      <mat-label>Select your gender</mat-label>
+      <mat-select (change)="selectGender($event)" formControlName="gender" required>
+        <mat-option *ngFor="let sex of gender" [value]="sex.value">{{sex.viewValue}}
+        </mat-option>
+      </mat-select>
+      <mat-error align="end"
+                 *ngIf="registrationForm.get('gender').hasError('required') && registrationForm.get('gender').touched || submitted">
+        {{ formErrorMessages.gender.require }}
+      </mat-error>
+    </mat-form-field>
+</mat-card-content>
+</form>
+   
+  
+  <mat-form-field>
+    <mat-select [formControl]='languages' placeholder='KnownLanguage' multiple>
+      <mat-option *ngFor='let l of lang' [value]='l'>{{l}}
+      </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-checkbox #showMore >MoreLanguage</mat-checkbox>
+      
+      <div *ngIf='showMore.checked'>
+  
+          <input matInput placeholder="KnownLanguage" [(ngModel)]="MoreLang" required>
+      
+      </div><br>
+     
+    
+  
+  
+
+
+
+
+
+<div class="content">
+	
+	
+	<div class="card-container">
+		<label>Country</label>
+		<select placeholder="Country" [(ngModel)]="selectedCountry" (change)="changeCountry($event)">
+			<option>--Choose Country--</option>
+			<option *ngFor="let country of Countries">{{country.name}}</option>
+		</select>
+	</div>
+
+	<div class="card-container">
+		<label>State</label>
+		<select placeholder="State" (change)="changeState($event)" [(ngModel)]='State'>
+			<option>--Choose State--</option>
+			<option *ngFor="let state of states">{{state.name}}</option>
+		</select>
+	</div>
+	 
+	<div class="card-container">
+		<label>City</label>
+		<select placeholder="City" [(ngModel)]='city'>
+			<option>--Choose City--</option>
+			<option *ngFor="let city of cities">{{city}}</option>
+		</select>
+	</div>
+</div>
+<button type="submit" mat-stroked-button color="accent"  (click)='Register()' class="btn-block">Register</button>
